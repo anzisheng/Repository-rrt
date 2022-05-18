@@ -9,9 +9,9 @@ class MAINWINDOW(object):
         MainWindow.setWindowTitle('登陆设计签名')
         MainWindow.resize(400, 400)
         MainWindow.move(800, 300)
-        MainWindow.setWindowIcon(QtGui.QIcon('title.jpg'))
+        MainWindow.setWindowIcon(QtGui.QIcon('Imgs/title.jpg'))
         background_img = QtGui.QPalette()
-        background_img.setBrush(MainWindow.backgroundRole(), QtGui.QBrush(QtGui.QPixmap('normal.jpg').scaled(669, 450)))
+        background_img.setBrush(MainWindow.backgroundRole(), QtGui.QBrush(QtGui.QPixmap('Imgs/normal.jpg').scaled(669, 450)))
         MainWindow.setPalette(background_img)
         self.centralwidget = MainWindow
         self.centralwidget.setObjectName("centralwidget")
@@ -115,9 +115,9 @@ class MAINWINDOW(object):
 class MainWindow(object):
     def qianming(self, MainWindow):
         MainWindow.setWindowTitle('设计个性签名')
-        MainWindow.setWindowIcon(QtGui.QIcon('title.jpg'))
+        MainWindow.setWindowIcon(QtGui.QIcon('Imgs/title.jpg'))
         background_img = QtGui.QPalette()
-        background_img.setBrush(MainWindow.backgroundRole(), QtGui.QBrush(QtGui.QPixmap('login1.jpg').scaled(669, 700)))
+        background_img.setBrush(MainWindow.backgroundRole(), QtGui.QBrush(QtGui.QPixmap('Imgs/login1.jpg').scaled(669, 700)))
         MainWindow.setPalette(background_img)
         MainWindow.resize(680, 600)
         MainWindow.move(620, 250)
@@ -161,7 +161,7 @@ class MainWindow(object):
         # 默认图片
         self.label2 = QtWidgets.QLabel(self.centralwidget)
         self.label2.setGeometry(QtCore.QRect(60, 200, 535, 205))
-        self.image = QtGui.QPixmap('login.png').scaled(535, 205)
+        self.image = QtGui.QPixmap('Imgs/login.png').scaled(535, 205)
         self.label2.setPixmap(self.image)
 
         # 按键设置
@@ -298,7 +298,7 @@ class MainWindow(object):
         self.response1 = requests.get(url=self.img_url, headers=self.header)
         # print(response1.content)
         # time.sleep(2)
-        with open('normalsignatue.jpg', 'wb') as fp:
+        with open('Imgs/normalsignatue.jpg', 'wb') as fp:
             fp.write(self.response1.content)
         # # 图片显示
         # # toolpush = Qt.QToolBox(windows)
@@ -308,7 +308,7 @@ class MainWindow(object):
         # label3.setGeometry(QtCore.QRect(60, 200, 682, 365))
 
         # 显示获得的图片
-        self.image1 = QtGui.QPixmap('normalsignatue.jpg').scaled(535, 205)
+        self.image1 = QtGui.QPixmap('Imgs/normalsignatue.jpg').scaled(535, 205)
         self.label3.setPixmap(self.image1)
 
     def WENJIAN_save(self):
