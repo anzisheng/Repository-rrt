@@ -1,8 +1,9 @@
-from PyQt5 import QtCore, QtGui, QtWidgets, Qt
+﻿from PyQt5 import QtCore, QtGui, QtWidgets, Qt
 from PyQt5.QtWidgets import QMainWindow, QApplication, QPushButton, QMessageBox, QWidget, QFileDialog
 import sys
 import requests
 import re
+import urllib, urllib.request
 
 class MAINWINDOW(object):
     def denglu(self, MainWindow):
@@ -290,15 +291,17 @@ class MainWindow(object):
         self.response = requests.post(url=self.url, headers=self.header, data=self.data)
         self.response.encoding = 'utf8'
         # print(response.text)
-        self.img_list = re.findall('<div class="tu">﻿<img src="(.*?)"/></div>', self.response.text)[0]
-        # print((img_list))
+        #self.img_list = re.findall('<div class="tu"><img src="(.*?)"/></div>', self.response.text)[0]
+        #print((self.img_list))
+        self.img_list = "tmp/175341387974117.gif"
         self.img_url = "http://www.uustv.com/" + self.img_list
-        # print(img_url)
+        print(self.img_url)
         # http://www.uustv.com/tmp/165180897555823.gif
+        urllib.request.urlretrieve(self.img_url,"Imgs/abc.gif")
         self.response1 = requests.get(url=self.img_url, headers=self.header)
-        # print(response1.content)
+        print(self.response1.content)
         # time.sleep(2)
-        with open('Imgs/normalsignatue.jpg', 'wb') as fp:
+        with open('Imgs/normalsignatue.gif', 'wb') as fp:
             fp.write(self.response1.content)
         # # 图片显示
         # # toolpush = Qt.QToolBox(windows)
@@ -308,7 +311,7 @@ class MainWindow(object):
         # label3.setGeometry(QtCore.QRect(60, 200, 682, 365))
 
         # 显示获得的图片
-        self.image1 = QtGui.QPixmap('Imgs/normalsignatue.jpg').scaled(535, 205)
+        self.image1 = QtGui.QPixmap('Imgs/normalsignatue.gif').scaled(535, 205)
         self.label3.setPixmap(self.image1)
 
     def WENJIAN_save(self):
