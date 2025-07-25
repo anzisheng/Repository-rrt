@@ -93,7 +93,7 @@ class MAINWINDOW(object):
         # print('登陆成功！')
         user_name = QtWidgets.QLineEdit.text(self.textbox1)
         user_password = QtWidgets.QLineEdit.text(self.textbox2)
-        if user_name == '123456' and user_password == 'password':
+        if user_name == '1' and user_password == '1':
             self.tiaozhuan()
         elif user_name == "":
             self.msg_box = QMessageBox(QMessageBox.Warning, '警告', '账号不能为空！')
